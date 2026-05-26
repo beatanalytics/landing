@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps Reviews API — beatanalytics</title>
+  <meta name="description" content="Paginated review access with sort modes, date filtering, and URL resolution — review-focused features that general Maps APIs don't expose.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>:root { --accent: #34A853; --accent-hover: #2d9249; }</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="nav-brand">beatanalytics</a>
+    <ul class="nav-links">
+      <li><a href="/spotify">Spotify</a></li>
+      <li><a href="/yelp">Yelp</a></li>
+      <li><a href="/maps" class="active">Maps</a></li>
+      <li><a href="/kleinanzeigen">Kleinanzeigen</a></li>
+      <li><a href="/stripe/portal" class="btn btn-secondary" style="padding:0.4rem 0.75rem">Manage Subscription</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Google Maps Reviews API</h1>
+    <p>Paginated review access with sort modes, date filtering, and URL resolution — review-focused features that general Maps APIs don't expose.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <p class="pricing-tier">Free</p>
+        <p class="pricing-price">$0<span>/month</span></p>
+        <p class="pricing-desc">100 calls/month. No credit card required.</p>
+        <div class="pricing-cta">
+          <form class="email-form" data-product="maps">
+            <input type="email" placeholder="you@example.com" required>
+            <button type="submit" class="btn btn-primary">Get Free Key</button>
+          </form>
+          <p class="form-msg"></p>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-tier">Starter</p>
+        <p class="pricing-price">$19<span>/month</span></p>
+        <p class="pricing-desc">2,500 calls/month. For individual developers.</p>
+        <div class="pricing-cta">
+          <a href="/stripe/maps-starter" class="btn btn-primary">Subscribe</a>
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <p class="pricing-tier">Pro</p>
+        <p class="pricing-price">$49<span>/month</span></p>
+        <p class="pricing-desc">15,000 calls/month. For heavy use and small teams.</p>
+        <div class="pricing-cta">
+          <a href="/stripe/maps-pro" class="btn btn-primary">Subscribe</a>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-tier">Business</p>
+        <p class="pricing-price">$129<span>/month</span></p>
+        <p class="pricing-desc">100,000 calls/month. For production workloads.</p>
+        <div class="pricing-cta">
+          <a href="/stripe/maps-business" class="btn btn-primary">Subscribe</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="enterprise">Need more? <a href="mailto:support@beatanalytics.org">Contact us</a> for enterprise pricing.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Available tools</h2>
+    <p style="color:var(--text-muted);margin-top:0;margin-bottom:var(--space-sm)">Your AI assistant can call any of these tools through the MCP server:</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>Search places</h3>
+        <p>Search Google Maps by keyword and location. Returns place names, ratings, review counts, addresses, and place IDs.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Place details</h3>
+        <p>Full details for any Google Maps listing: name, address, phone, website, hours, rating, photos, and category.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Reviews</h3>
+        <p>Full review text with star ratings, exact timestamps, reviewer info, and owner replies. Paginated access to all reviews — not just the default 5. Sort by newest, highest, lowest, or most relevant. Filter by date range.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Resolve URL</h3>
+        <p>Convert any Google Maps URL (short links, search result links, shared links) into a canonical place ID. Handles all Maps URL formats.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Get started</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>Get your API key</h3>
+        <p>Pick a plan above. Free tier: enter your email and get a key instantly. Paid tiers: complete checkout and your key is emailed to you.</p>
+      </div>
+      <div class="step">
+        <h3>Connect the MCP server</h3>
+        <p>Add this to your MCP client configuration:</p>
+        <pre><code>{
+  "mcpServers": {
+    "google-maps-reviews": {
+      "url": "https://mcp.beatanalytics.org/maps",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  }
+}</code></pre>
+        <p style="margin-top:var(--space-xs)">Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP-compatible client.</p>
+      </div>
+      <div class="step">
+        <h3>Start querying</h3>
+        <p>Ask your AI assistant:</p>
+        <ul class="examples">
+          <li>Get me the 20 most recent reviews for this restaurant</li>
+          <li>Find all dentists in Austin with 100+ reviews and summarize the negative ones</li>
+          <li>What are the common complaints in 1-star reviews for this hotel?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/stripe/portal">Manage Subscription</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.email-form').forEach(form => {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const msg = form.nextElementSibling;
+    const email = form.querySelector('input[type="email"]').value;
+    const product = form.dataset.product;
+    msg.textContent = '';
+    msg.className = 'form-msg';
+    try {
+      const res = await fetch('https://mcp.beatanalytics.org/manage/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, product })
+      });
+      if (!res.ok) throw new Error();
+      msg.textContent = 'Check your email for your API key!';
+      msg.classList.add('success');
+      form.reset();
+    } catch {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.classList.add('error');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
