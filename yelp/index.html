@@ -21,7 +21,7 @@
       <li><a href="/yelp" class="active">Yelp</a></li>
       <li><a href="/maps">Maps</a></li>
       <li><a href="/kleinanzeigen">Kleinanzeigen</a></li>
-      <li><a href="/stripe/portal" class="btn btn-secondary" style="padding:0.4rem 0.75rem">Manage Subscription</a></li>
+      <li><a href="https://billing.stripe.com/p/login/00g17laxvetTepG000" class="btn btn-secondary" style="padding:0.4rem 0.75rem">Manage Subscription</a></li>
     </ul>
   </div>
 </nav>
@@ -29,7 +29,7 @@
 <main class="container">
 
   <section class="hero">
-    <h1>Yelp Business Data API</h1>
+    <h1>Yelp Business Data MCP</h1>
     <p>Full business profiles, reviews with owner replies, ratings, photos, hours, and contact info — structured JSON from any Yelp listing.</p>
   </section>
 
@@ -55,7 +55,7 @@
         <p class="pricing-price">$19<span>/month</span></p>
         <p class="pricing-desc">2,500 calls/month. For individual developers.</p>
         <div class="pricing-cta">
-          <a href="/stripe/yelp-starter" class="btn btn-primary">Subscribe</a>
+          <a href="https://buy.stripe.com/00weVcazgfWm4Hh1DybII07" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
         <p class="pricing-price">$49<span>/month</span></p>
         <p class="pricing-desc">15,000 calls/month. For heavy use and small teams.</p>
         <div class="pricing-cta">
-          <a href="/stripe/yelp-pro" class="btn btn-primary">Subscribe</a>
+          <a href="https://buy.stripe.com/cNi9AS36O11s0r1fuobII08" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
 
@@ -73,12 +73,12 @@
         <p class="pricing-price">$129<span>/month</span></p>
         <p class="pricing-desc">100,000 calls/month. For production workloads.</p>
         <div class="pricing-cta">
-          <a href="/stripe/yelp-business" class="btn btn-primary">Subscribe</a>
+          <a href="https://buy.stripe.com/28EfZgbDk25w2z9dmgbII09" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
 
     </div>
-    <p class="enterprise">Need more? <a href="mailto:support@beatanalytics.org">Contact us</a> for enterprise pricing.</p>
+    <p class="enterprise">Need more? <a href="mailto:sales@beatanalytics.org">Contact us</a> for enterprise pricing.</p>
   </section>
 
   <section class="section">
@@ -113,9 +113,10 @@
         <pre><code>{
   "mcpServers": {
     "yelp-reviews": {
-      "url": "https://mcp.beatanalytics.org/yelp",
+      "url": "https://mcp.beatanalytics.org/yelp/mcp",
       "headers": {
-        "Authorization": "Bearer YOUR_API_KEY"
+        "x-client": "YOUR_EMAIL_ADDRESS",
+        "x-api-key": "YOUR_API_KEY"
       }
     }
   }
@@ -138,7 +139,7 @@
 
 <footer>
   <div class="container">
-    <a href="/stripe/portal">Manage Subscription</a>
+    <a href="https://billing.stripe.com/p/login/00g17laxvetTepG000">Manage Subscription</a>
   </div>
 </footer>
 
@@ -152,7 +153,7 @@ document.querySelectorAll('.email-form').forEach(form => {
     msg.textContent = '';
     msg.className = 'form-msg';
     try {
-      const res = await fetch('https://mcp.beatanalytics.org/manage/signup', {
+      const res = await fetch('https://api.beatanalytics.org/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, product })

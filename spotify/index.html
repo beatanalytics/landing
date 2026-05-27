@@ -21,7 +21,7 @@
       <li><a href="/yelp">Yelp</a></li>
       <li><a href="/maps">Maps</a></li>
       <li><a href="/kleinanzeigen">Kleinanzeigen</a></li>
-      <li><a href="/stripe/portal" class="btn btn-secondary" style="padding:0.4rem 0.75rem">Manage Subscription</a></li>
+      <li><a href="https://billing.stripe.com/p/login/00g17laxvetTepG000" class="btn btn-secondary" style="padding:0.4rem 0.75rem">Manage Subscription</a></li>
     </ul>
   </div>
 </nav>
@@ -29,7 +29,7 @@
 <main class="container">
 
   <section class="hero">
-    <h1>Spotify Statistics API</h1>
+    <h1>Spotify Statistics MCP</h1>
     <p>Real-time Spotify data not available through the official API — stream counts, monthly listeners, artist rankings, and full catalog metadata.</p>
   </section>
 
@@ -55,7 +55,7 @@
         <p class="pricing-price">$19<span>/month</span></p>
         <p class="pricing-desc">2,500 calls/month. For individual developers.</p>
         <div class="pricing-cta">
-          <a href="/stripe/spotify-starter" class="btn btn-primary">Subscribe</a>
+          <a href="https://buy.stripe.com/28E7sKazg5hIflVaa4bII04" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
         <p class="pricing-price">$49<span>/month</span></p>
         <p class="pricing-desc">15,000 calls/month. For heavy use and small teams.</p>
         <div class="pricing-cta">
-          <a href="/stripe/spotify-pro" class="btn btn-primary">Subscribe</a>
+          <a href="https://buy.stripe.com/6oU14m0YG9xYehRaa4bII05" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
 
@@ -73,12 +73,12 @@
         <p class="pricing-price">$129<span>/month</span></p>
         <p class="pricing-desc">100,000 calls/month. For production workloads.</p>
         <div class="pricing-cta">
-          <a href="/stripe/spotify-business" class="btn btn-primary">Subscribe</a>
+          <a href="https://buy.stripe.com/eVqaEW22KbG67Tt1DybII06" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
 
     </div>
-    <p class="enterprise">Need more? <a href="mailto:support@beatanalytics.org">Contact us</a> for enterprise pricing.</p>
+    <p class="enterprise">Need more? <a href="mailto:sales@beatanalytics.org">Contact us</a> for enterprise pricing.</p>
   </section>
 
   <section class="section">
@@ -125,9 +125,10 @@
         <pre><code>{
   "mcpServers": {
     "spotify-stats": {
-      "url": "https://mcp.beatanalytics.org/spotify",
+      "url": "https://mcp.beatanalytics.org/spotify/mcp",
       "headers": {
-        "Authorization": "Bearer YOUR_API_KEY"
+        "x-client": "YOUR_EMAIL_ADDRESS",
+        "x-api-key": "YOUR_API_KEY"
       }
     }
   }
@@ -150,7 +151,7 @@
 
 <footer>
   <div class="container">
-    <a href="/stripe/portal">Manage Subscription</a>
+    <a href="https://billing.stripe.com/p/login/00g17laxvetTepG000">Manage Subscription</a>
   </div>
 </footer>
 
@@ -164,7 +165,7 @@ document.querySelectorAll('.email-form').forEach(form => {
     msg.textContent = '';
     msg.className = 'form-msg';
     try {
-      const res = await fetch('https://mcp.beatanalytics.org/manage/signup', {
+      const res = await fetch('https://api.beatanalytics.org/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, product })
